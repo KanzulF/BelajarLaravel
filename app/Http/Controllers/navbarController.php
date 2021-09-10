@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\table_contents;
+use App\Models\Contents;
 
 
 class navbarController extends Controller
 {
     public function index($slug)
     {
-        $data = table_contents::where('status', $slug)->get();
+        $data = Contents::where('status', $slug)->get();
         // dd($data);
         if ($slug == 'DONE'){
             $hide = 'd-none';

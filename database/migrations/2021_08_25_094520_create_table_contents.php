@@ -13,7 +13,7 @@ class CreateTableContents extends Migration
      */
     public function up()
     {
-        Schema::create('table_contents', function (Blueprint $table) {
+        Schema::create('Contents', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('description');
@@ -29,6 +29,6 @@ class CreateTableContents extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_contents');
+        Schema::dropIfExists('Contents');
     }
 }

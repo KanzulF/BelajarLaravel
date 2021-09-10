@@ -21,6 +21,7 @@ use App\Http\Controllers\navbarController;
 Route::get('/', [ContentsController::class, 'index']);
 Route::get('/show/{slug}', [navbarController::class, 'index']);
 
+Route::view('/summary','page.showSummary');
 
 Route::get('/move/{slug}/{id}', [ContentsController::class, 'move']);
 Route::resource('contents', ContentsController::class);
