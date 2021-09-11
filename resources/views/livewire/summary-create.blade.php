@@ -13,22 +13,25 @@
         </form> --}}
 
     <form wire:submit.prevent="store">
+        <h3>Create Data</h3>
         <div class="form-group">
             <div class="form-row">
-                <div class="col">
+                <div class="col mb-3">
+                    <label class="form-label">Title</label>
                     <input wire:model="title" type="text" name="" id="" class="form-control 
-                    @error('name') is-invalid @enderror" placeholder="Title">
+                    @error('title') is-invalid @enderror" placeholder="Title">
 
-                    @error('name')
+                    @error('title')
                         <span class="invalid-feedback">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
 
                 </div>
-                <div class="col">
-                    <input wire:model="description" type="text" name="" id="" class="form-control
-                    @error('description') is-invalid @enderror" placeholder="Description">
+                <div class="col mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea wire:model="description" type="text" name="" id="" class="form-control
+                    @error('description') is-invalid @enderror" placeholder="Description"></textarea>
                     
                     @error('description')
                         <span class="invalid-feedback">

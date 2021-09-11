@@ -1,5 +1,5 @@
 <x-app-main>
     <div>
-        <livewire:summary action="create"/>
+        <livewire:summary/>
     </div>
 </x-app-main>

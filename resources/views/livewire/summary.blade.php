@@ -8,9 +8,27 @@
         </div>
     @endif
 
-    <livewire:summary-create></livewire:summary-create>
-       
+    @if ($statusUpdate)
+        <livewire:summary-update></livewire:summary-update>
+    @else
+        <livewire:summary-create></livewire:summary-create>
+    @endif
    
+    <div class="row">
+      <div class="col">
+        <select wire:model='paginate' name="" id="" class="form-control sm w-auto">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
+     </div>
+     </div>  
+
+<div class="col">
+  <input wire:model='search' type="text" class="form-control form-control-sm" placeholder="search title">
+</div>
+
         <h1 class="text-center">SUMMARY</h1>
         <table class="table table-striped mt-3 table-bordered align-middle" action="href">
             <thead>
@@ -32,11 +50,24 @@
                 <td class="col-md-5">{{ $item ->description }}</td>
                 <td class="col-md-2">{{ $item ->status }}</td>
                 <td class="col-md-3"> 
-                    <button class="btn btn-sm btn-info text-white">Edit</button>
-                    <button class="btn btn-sm btn-danger text-white">Delete</button>
+                    <button wire:click='getData({{ $item->id }})' class="btn btn-sm btn-info text-white">Edit</button>
+                    <button wire:click='destroy({{ $item->id }})' class="btn btn-sm btn-danger text-white">Delete</button>
                 </td>
               </tr>
               @endforeach
             </tbody>
           </table>
+
+          <div class="row">
+            <div class="col">
+              <select wire:model='paginate' name="" id="" class="form-control sm w-auto">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+              </select>
+           </div>
+           </div>  
+
+          {{ $data->links() }}
 </div>
